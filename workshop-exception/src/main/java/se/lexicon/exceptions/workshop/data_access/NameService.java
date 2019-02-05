@@ -71,7 +71,6 @@ public class NameService {
 		} catch (DuplicateNameException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Duplicate name "+e.getName()+" find.");
-			e.printStackTrace();
 		}
 	}
 
@@ -93,7 +92,6 @@ public class NameService {
 		} catch (DuplicateNameException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Duplicate name "+e.getName()+" find.");
-			e.printStackTrace();
 		}
 	}
 
@@ -115,7 +113,6 @@ public class NameService {
 		} catch (DuplicateNameException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Duplicate name "+e.getName()+" find.");
-			e.printStackTrace();
 		}
 	}
 }
