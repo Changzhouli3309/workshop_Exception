@@ -51,20 +51,12 @@ public class CSVReader_Writer {
 
 		List<String> names = null;
 
-		BufferedReader reader = null;
-		try {
-			reader = Files.newBufferedReader(Paths.get("firstname_female.txt"));
+		try (BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt"))) 
+		{
 			names = reader.lines().flatMap(line -> Stream.of(line.split(","))).collect(Collectors.toList());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} finally {
-			try {
-				reader.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 		return names;
 	}
@@ -95,9 +87,8 @@ public class CSVReader_Writer {
 
 	public static void saveLastNames(List<String> lastNames) {
 
-		BufferedWriter writer;
-		try {
-			writer = Files.newBufferedWriter(Paths.get("lastnames.txt"));
+		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt")))
+		{			
 			for (String toWrite : lastNames) {
 				writer.append(toWrite + ",");
 			}
@@ -110,9 +101,8 @@ public class CSVReader_Writer {
 	}
 
 	public static void saveFemaleNames(List<String> femaleNames) {
-		BufferedWriter writer;
-		try {
-			writer = Files.newBufferedWriter(Paths.get("firstname_female.txt"));
+
+		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"))){
 			for (String toWrite : femaleNames) {
 				writer.append(toWrite + ",");
 			}
@@ -125,9 +115,9 @@ public class CSVReader_Writer {
 	}
 
 	public static void saveMaleNames(List<String> maleNames) {
-		BufferedWriter writer;
-		try {
-			writer = Files.newBufferedWriter(Paths.get("firstname_males.txt"));
+
+		try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("lastnames.txt"))){
+
 			for (String toWrite : maleNames) {
 				writer.append(toWrite + ",");
 			}
